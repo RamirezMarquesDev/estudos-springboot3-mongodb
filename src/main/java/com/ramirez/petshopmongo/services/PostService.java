@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ramirez.petshopmongo.domain.Post;
 import com.ramirez.petshopmongo.repository.PostRepository;
 import com.ramirez.petshopmongo.services.exceptions.ObjectNotFoundException;
+import java.util.Date;
 
 @Service
 public class PostService {
@@ -29,6 +30,11 @@ public class PostService {
 
 	public Iterable<Post> findAll() {
 		return repo.findAll();
+	}
+
+	public List<Post> fullSearch(String text, Date minDate, Date maxDate) {
+		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
+		return repo.fullSearch(text, minDate, maxDate);
 	}
 
 }
