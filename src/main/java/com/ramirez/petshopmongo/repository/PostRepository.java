@@ -7,5 +7,5 @@ import com.ramirez.petshopmongo.domain.Post;
 
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> {
-	
+
 }
