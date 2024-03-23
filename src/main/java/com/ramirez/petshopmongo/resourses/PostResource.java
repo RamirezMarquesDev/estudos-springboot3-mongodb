@@ -27,14 +27,12 @@ public class PostResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	/*
-	 * @GetMapping
-	 * public ResponseEntity<Iterable<Post>> findAll() {
-	 * Iterable<Post> list = service.findAll();
-	 * return ResponseEntity.ok().body(list);
-	 * 
-	 * }
-	 */
+	@GetMapping
+	public ResponseEntity<Iterable<Post>> findAll() {
+		Iterable<Post> list = service.findAll();
+		return ResponseEntity.ok().body(list);
+
+	}
 
 	@GetMapping(value = "/titlesearch")
 	public ResponseEntity<List<Post>> findByTitle(@RequestParam(value = "text", defaultValue = "") String text) {
