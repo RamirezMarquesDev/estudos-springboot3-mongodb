@@ -1,5 +1,7 @@
 package com.ramirez.petshopmongo.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +23,13 @@ public class PostService {
 		return user;
 	}
 
-	// create a method to find all posts
-	public Iterable<Post> findAll() {
-		return repo.findAll();
+	public List<Post> findByTitle(String text) {
+		return repo.findByTitleContainingIgnoreCase(text);
 	}
+
+	/*
+	 * public Iterable<Post> findAll() {
+	 * return repo.findAll();
+	 * }
+	 */
 }
